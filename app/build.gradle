@@ -1,0 +1,100 @@
+/*
+ * Copyright (c) 2017 Gowtham Parimelazhagan
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+apply plugin: 'com.android.application'
+apply plugin: 'me.tatarka.retrolambda'
+apply from: '../config/quality/quality.gradle'
+
+
+android {
+    compileSdkVersion versions.compileSdk
+    buildToolsVersion versions.buildTools
+    defaultConfig {
+        applicationId "com.gm.mvpdemo"
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.targetSdk
+        versionCode versions.code
+        versionName versions.name
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        // Make generated apks contain version name and code.
+//        archivesBaseName = "app-${versions.name}-${versions.code}"
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            applicationIdSuffix '.debug'
+            versionNameSuffix '-debug'
+
+            // Run code coverage reports by default on debug builds.
+            testCoverageEnabled true
+        }
+    }
+
+    productFlavors {
+        prod {
+        }
+
+        demo {
+        }
+    }
+
+    /* allow using java 8 lambda */
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
+    }
+
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+
+    compile libraries.supportAnnotations
+    compile libraries.supportAppCompat
+    compile libraries.supportDesign
+    compile libraries.supportCardView
+    compile libraries.gRecyclerView
+    compile libraries.constrainLayout
+
+    //Log
+    compile libraries.gLog
+    //Rx Android
+    compile libraries.rxandroid
+    compile libraries.rxbinding
+    //Image Library
+
+    //Butter Knife
+    compile libraries.butterKnife
+    annotationProcessor libraries.butterKnifeCompiler
+
+    annotationProcessor libraries.daggerCompiler
+
+
+    testCompile libraries.junit
+    androidTestCompile(libraries.espressoCore) {
+        // Causes IncompatibleClassChangeError. As always…
+        exclude module: 'support-annotations'
+        exclude module: 'recyclerview-v7'
+        exclude module: 'support-v4'
+    }
+    compile project(':demo-common')
+}
