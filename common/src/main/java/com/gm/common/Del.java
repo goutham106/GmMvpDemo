@@ -14,7 +14,14 @@
  * limitations under the License.
  */
 
-include ':demo-app', ':demo-common'
-project(':demo-app').projectDir = new File('app')
-project(':demo-common').projectDir = new File('common')
+package com.gm.common;
 
+/**
+ * Name       : Gowtham
+ * Created on : 13/4/17.
+ * Email      : goutham.gm11@gmail.com
+ * GitHub     : https://github.com/goutham106
+ */
+
+public class Del {
+}

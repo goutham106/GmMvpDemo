@@ -14,7 +14,27 @@
  * limitations under the License.
  */
 
-include ':demo-app', ':demo-common'
-project(':demo-app').projectDir = new File('app')
-project(':demo-common').projectDir = new File('common')
+package com.gm.mvpdemo.di.component;
 
+
+import com.gm.mvpdemo.di.PerActivity;
+import com.gm.mvpdemo.di.module.ActivityModule;
+
+import dagger.Component;
+
+/**
+ * Created by janisharali on 27/01/17.
+ */
+
+@PerActivity
+@Component(dependencies = ApplicationComponent.class, modules = ActivityModule.class)
+public interface ActivityComponent {
+
+//    void inject(MainActivity activity);
+//
+//    void inject(LoginActivity activity);
+//
+//    void inject(SplashActivity activity);
+//
+//    void inject(AboutFragment fragment);
+}

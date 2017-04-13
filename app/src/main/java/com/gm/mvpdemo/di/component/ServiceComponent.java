@@ -14,7 +14,21 @@
  * limitations under the License.
  */
 
-package com.gm.mvpdemo;
+package com.gm.mvpdemo.di.component;
 
-public class MyClass {
+import com.gm.mvpdemo.di.PerService;
+import com.gm.mvpdemo.di.module.ServiceModule;
+
+import dagger.Component;
+
+/**
+ * Created by janisharali on 01/02/17.
+ */
+
+@PerService
+@Component(dependencies = ApplicationComponent.class, modules = ServiceModule.class)
+public interface ServiceComponent {
+
+//    void inject(SyncService service);
+
 }

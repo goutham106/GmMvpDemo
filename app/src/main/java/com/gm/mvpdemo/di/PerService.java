@@ -14,7 +14,22 @@
  * limitations under the License.
  */
 
-include ':demo-app', ':demo-common'
-project(':demo-app').projectDir = new File('app')
-project(':demo-common').projectDir = new File('common')
+package com.gm.mvpdemo.di;
+
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+
+import javax.inject.Scope;
+
+/**
+ * Name       : Gowtham
+ * Created on : 27/01/17.
+ * Email      : goutham.gm11@gmail.com
+ * GitHub     : https://github.com/goutham106
+ */
+
+@Scope
+@Retention(RetentionPolicy.RUNTIME)
+public @interface PerService {
+}
 

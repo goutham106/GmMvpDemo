@@ -14,7 +14,22 @@
  * limitations under the License.
  */
 
-include ':demo-app', ':demo-common'
-project(':demo-app').projectDir = new File('app')
-project(':demo-common').projectDir = new File('common')
+package com.gm.mvpdemo.di.module;
 
+import android.app.Service;
+
+import dagger.Module;
+
+/**
+ * Created by janisharali on 01/02/17.
+ */
+
+@Module
+public class ServiceModule {
+
+    private final Service mService;
+
+    public ServiceModule(Service service) {
+        mService = service;
+    }
+}

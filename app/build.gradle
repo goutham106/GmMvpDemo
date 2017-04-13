@@ -67,7 +67,9 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile project(':demo-common')
 
+    //Support lib
     compile libraries.supportAnnotations
     compile libraries.supportAppCompat
     compile libraries.supportDesign
@@ -77,18 +79,36 @@ dependencies {
 
     //Log
     compile libraries.gLog
-    //Rx Android
+
+    //Rx
     compile libraries.rxandroid
+    compile libraries.rxJava
     compile libraries.rxbinding
-    //Image Library
 
     //Butter Knife
     compile libraries.butterKnife
     annotationProcessor libraries.butterKnifeCompiler
 
+    //Dagger
+    compile libraries.dagger
+    provided libraries.daggerCompiler
     annotationProcessor libraries.daggerCompiler
 
+    //Retrofit
+    compile libraries.retrofit
+    compile libraries.retrofitGsonConverter
+    compile libraries.retrofitRxJavaAdapter
 
+    //Okhttp
+    compile libraries.okHttp
+    compile libraries.okHttpLoggingInterceptor
+
+    //DbFlow
+    compile libraries.dbFlow
+    compile libraries.dbFlowCore
+    annotationProcessor libraries.dbFlowProcessor
+
+    //Testing
     testCompile libraries.junit
     androidTestCompile(libraries.espressoCore) {
         // Causes IncompatibleClassChangeError. As always…
@@ -96,5 +116,4 @@ dependencies {
         exclude module: 'recyclerview-v7'
         exclude module: 'support-v4'
     }
-    compile project(':demo-common')
 }

@@ -14,7 +14,34 @@
  * limitations under the License.
  */
 
-include ':demo-app', ':demo-common'
-project(':demo-app').projectDir = new File('app')
-project(':demo-common').projectDir = new File('common')
+package com.gm.mvpdemo.di.component;
 
+import android.app.Application;
+import android.content.Context;
+
+import com.gm.mvpdemo.di.ApplicationContext;
+import com.gm.mvpdemo.di.module.ApplicationModule;
+
+import javax.inject.Singleton;
+
+import dagger.Component;
+
+/**
+ * Created by janisharali on 27/01/17.
+ */
+
+@Singleton
+@Component(modules = ApplicationModule.class)
+public interface ApplicationComponent {
+
+//    void inject(MvpApp app);
+//
+//    void inject(SyncService service);
+//
+//    @ApplicationContext
+//    Context context();
+//
+//    Application application();
+//
+//    DataManager getDataManager();
+}

@@ -14,7 +14,22 @@
  * limitations under the License.
  */
 
-include ':demo-app', ':demo-common'
-project(':demo-app').projectDir = new File('app')
-project(':demo-common').projectDir = new File('common')
+package com.gm.common.session;
 
+/**
+ * Name       : Gowtham
+ * Created on : 13/4/17.
+ * Email      : goutham.gm11@gmail.com
+ * GitHub     : https://github.com/goutham106
+ */
+
+public interface SessionConstants {
+    String PREF_FIRST_TIME = "appear_first_time";
+    String PREF_ISLOGGED_IN = "isLoggedIn";
+    String PREF_USER_LOGIN_MODE ="userLoginMode";
+    String PREF_USER_ID="currentUserId";
+    String PREF_USER_NAME="currentUserName";
+    String PREF_USER_EMAIL="currentUserEmail";
+    String PREF_USER_PROFILE_PIC="currentUserProfilePic";
+    String PREF_ACCESS_TOKEN="accessToken";
+}

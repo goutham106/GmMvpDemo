@@ -14,7 +14,26 @@
  * limitations under the License.
  */
 
-include ':demo-app', ':demo-common'
-project(':demo-app').projectDir = new File('app')
-project(':demo-common').projectDir = new File('common')
+package com.gm.mvpdemo.base;
 
+/*
+  Name       : Gowtham
+  Created on : 13/4/17.
+  Email      : goutham.gm11@gmail.com
+  GitHub     : https://github.com/goutham106
+ */
+
+/**
+ * Every presenter in the app must either implement this interface or extend BasePresenter
+ * indicating the MvpView type that wants to be attached with.
+ */
+public interface MvpPresenter<V extends MvpView> {
+
+    void onAttach(V mvpView);
+
+    void onDetach();
+
+    void handleApiError(Exception error);
+
+    void setUserAsLoggedOut();
+}
